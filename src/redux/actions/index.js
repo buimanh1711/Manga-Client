@@ -1,6 +1,6 @@
-import * as API from "../../services/global";
-import { createBrowserHistory } from "history";
-const browserHistory = createBrowserHistory();
+import * as API from "../../services/global"
+import { createBrowserHistory } from "history"
+const browserHistory = createBrowserHistory()
 
 export const auth = () => {
   return (dispatch) => {
@@ -9,39 +9,39 @@ export const auth = () => {
         let payload = {
           login: res.data.login,
           user: res.data.user,
-        };
-        dispatch(authAsync(payload));
+        }
+        dispatch(authAsync(payload))
       } else {
-        console.log("Lỗi xác thực!");
+        console.log("Lỗi xác thực!")
       }
-    });
-  };
-};
+    })
+  }
+}
 
 export const authAsync = (payload) => {
   return {
     type: "AUTHENTICATION",
     payload,
-  };
-};
+  }
+}
 
 export const toggleLoading = (payload) => {
   return {
     type: "TOGGLE_LOADING",
     payload,
-  };
-};
+  }
+}
 
 export const triggerNotif = (payload) => {
   return {
     type: "TRIGGER_NOTIF",
     payload,
-  };
-};
+  }
+}
 
 export const getAllProductsAsync = (query, loading) => {
   return (dispatch) => {
-    if (loading) dispatch(toggleLoading(true));
+    if (loading) dispatch(toggleLoading(true))
 
     API.getAllProducts(query)
       .then((res) => {
@@ -54,12 +54,12 @@ export const getAllProductsAsync = (query, loading) => {
                 currentPage: res.data.currentPage,
               },
             })
-          );
+          )
         } else {
           triggerNotif({
             type: "ERROR",
             content: res.data.message,
-          });
+          })
         }
       })
       .catch((err) => {
@@ -68,24 +68,24 @@ export const getAllProductsAsync = (query, loading) => {
             type: "ERROR",
             content: "SERVER_ERROR!",
           })
-        );
+        )
       })
       .then(() => {
-        dispatch(toggleLoading(false));
-      });
-  };
-};
+        dispatch(toggleLoading(false))
+      })
+  }
+}
 
 export const getAllProducts = (payload) => {
   return {
     type: "GET_ALL_PRODUCTS",
     payload,
-  };
-};
+  }
+}
 
 export const getAllGuestsAsync = (query, loading) => {
   return (dispatch) => {
-    if (loading) dispatch(toggleLoading(true));
+    if (loading) dispatch(toggleLoading(true))
 
     API.getAllGuests(query)
       .then((res) => {
@@ -99,12 +99,12 @@ export const getAllGuestsAsync = (query, loading) => {
                 totalGuests: res.data.totalGuests,
               },
             })
-          );
+          )
         } else {
           triggerNotif({
             type: "ERROR",
             content: res.data.message,
-          });
+          })
         }
       })
       .catch((err) => {
@@ -113,24 +113,24 @@ export const getAllGuestsAsync = (query, loading) => {
             type: "ERROR",
             content: "SERVER_ERROR!",
           })
-        );
+        )
       })
       .then(() => {
-        dispatch(toggleLoading(false));
-      });
-  };
-};
+        dispatch(toggleLoading(false))
+      })
+  }
+}
 
 export const getAllGuests = (payload) => {
   return {
     type: "GET_ALL_GUESTS",
     payload,
-  };
-};
+  }
+}
 
 export const getAllUsersAsync = (query, loading) => {
   return (dispatch) => {
-    if (loading) dispatch(toggleLoading(true));
+    if (loading) dispatch(toggleLoading(true))
 
     API.getAllUsers(query)
       .then((res) => {
@@ -143,12 +143,12 @@ export const getAllUsersAsync = (query, loading) => {
                 currentPage: res.data.currentPage,
               },
             })
-          );
+          )
         } else {
           triggerNotif({
             type: "ERROR",
             content: res.data.message,
-          });
+          })
         }
       })
       .catch((err) => {
@@ -157,27 +157,27 @@ export const getAllUsersAsync = (query, loading) => {
             type: "ERROR",
             content: "SERVER_ERROR!",
           })
-        );
+        )
       })
       .then(() => {
-        dispatch(toggleLoading(false));
-      });
-  };
-};
+        dispatch(toggleLoading(false))
+      })
+  }
+}
 
 export const removeUsersAsync = (_id, image) => {
   return (dispatch) => {
-    dispatch(toggleLoading(true));
+    dispatch(toggleLoading(true))
 
     API.deleteUser(_id, image)
       .then((res) => {
         if (res.data && res.data.status) {
-          dispatch(removeUser(_id));
+          dispatch(removeUser(_id))
         } else {
           triggerNotif({
             type: "ERROR",
             content: res.data.message,
-          });
+          })
         }
       })
       .catch((err) => {
@@ -186,33 +186,33 @@ export const removeUsersAsync = (_id, image) => {
             type: "ERROR",
             content: "SERVER_ERROR!",
           })
-        );
+        )
       })
       .then(() => {
-        dispatch(toggleLoading(false));
-        dispatch(getAllUsersAsync({}));
-      });
-  };
-};
+        dispatch(toggleLoading(false))
+        dispatch(getAllUsersAsync({}))
+      })
+  }
+}
 
 export const removeUser = (payload) => {
   return {
     type: "REMOVE_USER",
     payload,
-  };
-};
+  }
+}
 
 export const removeGuestAsync = (_id) => {
   return (dispatch) => {
     API.deleteGuest(_id)
       .then((res) => {
         if (res.data && res.data.status) {
-          dispatch(removeGuest(_id));
+          dispatch(removeGuest(_id))
         } else {
           triggerNotif({
             type: "ERROR",
             content: res.data.message,
-          });
+          })
         }
       })
       .catch((err) => {
@@ -221,47 +221,47 @@ export const removeGuestAsync = (_id) => {
             type: "ERROR",
             content: "SERVER_ERROR!",
           })
-        );
+        )
       })
       .then(() => {
-        dispatch(toggleLoading(false));
-        dispatch(getAllGuestsAsync({}));
-      });
-  };
-};
+        dispatch(toggleLoading(false))
+        dispatch(getAllGuestsAsync({}))
+      })
+  }
+}
 
 export const removeGuest = (payload) => {
   return {
     type: "REMOVE_GUEST",
     payload,
-  };
-};
+  }
+}
 
 export const getAllUsers = (payload) => {
   return {
     type: "GET_ALL_USERS",
     payload,
-  };
-};
+  }
+}
 
 export const getUserData = (userData) => {
   return {
     type: "GET_USER_DATA",
     payload: userData,
-  };
-};
+  }
+}
 
 export const getAllCategoriesAsync = () => {
   return (dispatch) => {
     API.getAllCategories()
       .then((res) => {
         if (res.data && res.data.status) {
-          dispatch(getAllCategories(res.data.categories));
+          dispatch(getAllCategories(res.data.categories))
         } else {
           triggerNotif({
             type: "ERROR",
             content: res.data.message,
-          });
+          })
         }
       })
       .catch((err) => {
@@ -270,32 +270,32 @@ export const getAllCategoriesAsync = () => {
             type: "ERROR",
             content: "SERVER_ERROR!",
           })
-        );
+        )
       })
       .then(() => {
-        dispatch(toggleLoading(false));
-      });
-  };
-};
+        dispatch(toggleLoading(false))
+      })
+  }
+}
 
 export const removeProduct = (payload) => {
   return {
     type: "REMOVE_PRODUCT",
     payload,
-  };
-};
+  }
+}
 
 export const removeProductAsync = (_id) => {
   return (dispatch) => {
     API.removeProduct(_id)
       .then((res) => {
         if (res.data && res.data.status) {
-          dispatch(removeProduct(_id));
+          dispatch(removeProduct(_id))
         } else {
           triggerNotif({
             type: "ERROR",
             content: res.data.message,
-          });
+          })
         }
       })
       .catch((err) => {
@@ -304,26 +304,26 @@ export const removeProductAsync = (_id) => {
             type: "ERROR",
             content: "SERVER_ERROR!",
           })
-        );
+        )
       })
       .then(() => {
-        dispatch(toggleLoading(false));
-        dispatch(getAllProductsAsync({}));
-      });
-  };
-};
+        dispatch(toggleLoading(false))
+        dispatch(getAllProductsAsync({}))
+      })
+  }
+}
 
 export const updateProductAsync = (_id, data) => {
   return (dispatch) => {
     API.updateProduct(_id, data)
       .then((res) => {
         if (res.data && res.data.status) {
-          dispatch(updateProduct(_id, data));
+          dispatch(updateProduct(_id, data))
         } else {
           triggerNotif({
             type: "ERROR",
             content: res.data.message,
-          });
+          })
         }
       })
       .catch((err) => {
@@ -332,24 +332,24 @@ export const updateProductAsync = (_id, data) => {
             type: "ERROR",
             content: "SERVER_ERROR!",
           })
-        );
+        )
       })
       .then(() => {
-        dispatch(toggleLoading(false));
-      });
-  };
-};
+        dispatch(toggleLoading(false))
+      })
+  }
+}
 
 export const updateProduct = (payload) => {
   return {
     type: "UPDATE_PRODUCT",
     payload,
-  };
-};
+  }
+}
 
 export const getAllCategories = (payload) => {
   return {
     type: "GET_CATEGORIES",
     payload,
-  };
-};
+  }
+}
