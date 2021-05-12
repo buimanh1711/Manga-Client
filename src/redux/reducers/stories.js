@@ -52,6 +52,9 @@ const storiesReducer = (state = initState, action) => {
       }
     }
   }
+
+  return state
+
 }
 
 export default storiesReducer

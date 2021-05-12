@@ -47,6 +47,8 @@ const webReducer = (state = initState, action) => {
       }
     }
   }
+
+  return state
 }
 
 export default webReducer
