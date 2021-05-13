@@ -1,3 +1,11 @@
+:root {
+  --primary-color: rgb(241, 81, 41);
+  --primary-color-2: rgb(241, 104, 41);
+  --text-bold-color: #424242;
+  --button-background-color: #e7edf1;
+  --border-color: rgba(0, 0, 0, 0.205);
+}
+
 @font-face {
   font-family: mainFont;
   src: url('../fonts/Roboto-Regular.ttf')
@@ -19,7 +27,6 @@ input {
 a {
   cursor: pointer;
   text-decoration: none !important;
-  color: black;
   outline: none;
 }
 
@@ -126,4 +133,31 @@ a {
 
 .ck.ck-editor__main>.ck-editor__editable {
   max-height: 400px
+}
+
+.slick-slide > div {
+  padding: 0px 8px !important;
+}
+
+.slick-arrow.slick-next {
+  right: 0 !important;
+  z-index: 5;
+}
+
+.slick-arrow.slick-prev {
+  left: 0 !important;
+  z-index: 5;
+}
+
+.slick-prev:before, .slick-next:before {
+  position: absolute;
+  top: 0;
+  font-size: 30px;  
+}
+.slick-prev:before {
+  left: 0;
+}
+
+.slick-next:before {
+  right: 0;
 }

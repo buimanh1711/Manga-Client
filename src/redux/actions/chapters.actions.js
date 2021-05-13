@@ -1,25 +1,25 @@
-import * as API from '../../services/stories.services'
+import * as API from '../../services/chapters.services'
 import { toggleLoading } from './web.actions'
 
-export const getAllStories = (payload) => ({
-  type: "GET_ALL_STORIES",
+export const getAllChapters = (payload) => ({
+  type: "GET_ALL_CHAPTERS",
   payload
 })
 
-export const getAllStoriesAsync = (query, loading) => {
+export const getAllChaptersAsync = (query, loading) => {
   return dispatch => {
     if (loading) dispatch(toggleLoading(true))
 
-    API.getAllStories(query)
+    API.getAllChapters(query)
       .then((res) => {
         if (res.data && res.data.status) {
           dispatch(
-            getAllStories({
-              stories: res.data.stories,
-              storyPage: {
+            getAllChapters({
+              chapters: res.data.Chapters,
+              ChapterPage: {
                 totalPage: res.data.totalPage,
                 currentPage: res.data.currentPage,
-                totalStories: res.data.totalStories,
+                totalChapters: res.data.totalChapters,
               },
             })
           )
@@ -38,20 +38,20 @@ export const getAllStoriesAsync = (query, loading) => {
   }
 }
 
-export const createStory = (payload) => ({
-  type: 'CREATE_ONE_STORY',
+export const createChapter = (payload) => ({
+  type: 'CREATE_ONE_CHAPTER',
   payload
 })
 
-export const createStoryAsync = (newStory) => {
+export const createChapterAsync = (newChapter) => {
   return dispatch => {
     dispatch(toggleLoading(true))
     
-    API.createStory(newStory)
+    API.createChapter(newChapter)
       .then(res => {
         if (res.data && res.data.status) {
           dispatch(
-            createStory(res.data.newStory)
+            createChapter(res.data.newChapter)
           )
         } else {
           alert('ERROR! ' + res.data.message)
@@ -68,21 +68,21 @@ export const createStoryAsync = (newStory) => {
   }
 }
 
-export const updateStory = (payload) => ({
-  type: "UDPATE_ONE_STORY",
+export const updateChapter = (payload) => ({
+  type: "UDPATE_ONE_CHAPTER",
   payload
 })
 
-export const updateStoryAsync = (_id, newStory, index) => {
+export const updateChapterAsync = (_id, newChapter, index) => {
   return dispatch => {
     dispatch(toggleLoading(true))
 
-    API.updateStory(_id, newStory)
+    API.updateChapter(_id, newChapter)
       .then((res) => {
         if (res.data && res.data.status) {
           dispatch(
-            updateStory({
-              stories: res.data.newStory,
+            updateChapter({
+              chapters: res.data.newChapter,
               index
             })
           )
@@ -101,12 +101,12 @@ export const updateStoryAsync = (_id, newStory, index) => {
   }
 }
 
-export const removeStoryAsync = (_id) => {
+export const removeChapterAsync = (_id) => {
   return (dispatch) => {
-    API.deleteStory(_id)
+    API.deleteChapter(_id)
       .then((res) => {
         if (res.data && res.data.status) {
-          dispatch(removeStory(_id))
+          dispatch(removeChapter(_id))
         } else {
           alert('ERROR! ' + res.data.message)
         }
@@ -122,9 +122,9 @@ export const removeStoryAsync = (_id) => {
   }
 }
 
-export const removeStory = (payload) => {
+export const removeChapter = (payload) => {
   return {
-    type: "DELETE_ONE_STORY",
+    type: "DELETE_ONE_CHAPTER",
     payload,
   }
 }

@@ -1,30 +1,25 @@
 const initState = {
   menu: [
     {
-      title: "Tổng quan",
+      title: "Trang chủ",
       path: "/",
-      icon: <i className="fas fa-chart-bar"></i>,
     },
     {
-      title: "Quản lý khách hàng",
-      path: "/clients",
-      icon: <i className="fas fa-users" />,
+      title: "Truyện",
+      path: "/stories",
     },
     {
-      title: "Quản lý nhân viên",
-      path: "/staffs",
-      icon: <i className="fas fa-id-card"></i>,
+      title: "Thể loại",
+      path: "/categories/:categoryId",
     },
     {
-      title: "Quản lý sản phẩm",
-      path: "/products",
-      icon: <i className="fas fa-shopping-bag"></i>,
+      title: "Sắp xếp",
+      path: "/stories/:sort",
     },
     {
-      title: "Thông tin",
-      path: "/about",
-      icon: <i className="fas fa-info"></i>,
-    },
+      title: "Theo dõi",
+      path: "/follow",
+    }
   ],
   loading: false,
 }

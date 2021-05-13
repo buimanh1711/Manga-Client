@@ -1,14 +1,14 @@
 import { combineReducers } from 'redux'
-import categoriesReducer from './categories'
-import chaptersReducer from './chapters'
-import storiesReducer from './stories'
-import usersReducer from './users'
-import webReducer from './web'
+import categoriesReducer from './categories.reducer'
+import chaptersReducer from './chapters.reducer'
+import storiesReducer from './stories.reducer'
+import usersReducer from './users.reducer'
+import webReducer from './web.reducer'
 
 const rootReducer = combineReducers({
-  stories: storiesReducer,
   categories: categoriesReducer,
   chapters: chaptersReducer,
+  stories: storiesReducer,
   users: usersReducer,
   web: webReducer
 })

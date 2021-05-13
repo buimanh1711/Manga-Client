@@ -25,13 +25,6 @@ export const authAsync = (payload) => {
   }
 }
 
-export const toggleLoading = (payload) => {
-  return {
-    type: "TOGGLE_LOADING",
-    payload,
-  }
-}
-
 export const triggerNotif = (payload) => {
   return {
     type: "TRIGGER_NOTIF",
