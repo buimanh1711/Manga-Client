@@ -71,30 +71,30 @@ const Login = (props) => {
   }
 
   const submitHandle = (e) => {
-    if (checkValidate(usernameErr, passCheck)) {
-      dispatch(toggleLoading(true))
-      loginAuth(userData)
-        .then(res => {
-          console.log(res)
-          if (res.data && res.data.status) {
-            dispatch(getUserData({
-              ...res.data.user,
-              token: res.data.token,
-              login: true
-            }))
-            history.replace('/')
-          } else {
-            alert('Sai tài khoản hoặc mật khẩu')
-          }
-        })
-        .catch(err => console.log(err))
-        .then(() => {
-          dispatch(toggleLoading(false))
-        })
-    } else {
-      alert('Thông tin không hợp lệ!')
-    }
-    e.preventDefault()
+    // if (checkValidate(usernameErr, passCheck)) {
+    //   dispatch(toggleLoading(true))
+    //   loginAuth(userData)
+    //     .then(res => {
+    //       console.log(res)
+    //       if (res.data && res.data.status) {
+    //         dispatch(getUserData({
+    //           ...res.data.user,
+    //           token: res.data.token,
+    //           login: true
+    //         }))
+    //         history.replace('/')
+    //       } else {
+    //         alert('Sai tài khoản hoặc mật khẩu')
+    //       }
+    //     })
+    //     .catch(err => console.log(err))
+    //     .then(() => {
+    //       dispatch(toggleLoading(false))
+    //     })
+    // } else {
+    //   alert('Thông tin không hợp lệ!')
+    // }
+    // e.preventDefault()
   }
 
   return (

@@ -1,6 +1,7 @@
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { useSelector } from "react-redux"
 import { Link, useLocation } from 'react-router-dom'
+import { specialCharsValidate } from "../../utils/validate"
 
 const Header = () => {
   const location = useLocation()
@@ -34,6 +35,25 @@ const Header = () => {
     }
   ]
   const [mbMenu, setMbMenu] = useState(false)
+  const [check, setCheck] = useState(false)
+
+  const formEl = useRef(null)
+
+  const checkQuery = (e) => {
+    let value = e.target.value.trim()
+    if(value.length > 0 && specialCharsValidate(value)) {
+      setCheck(true)
+    } else {
+      setCheck(false)
+    }
+  }
+
+  const submitHandle = (e) => {
+    if(e.key === 'Enter' && check) {
+      e.preventDefault()
+      formEl.current.submit()
+    }
+  }
 
   return (
     <>
@@ -48,9 +68,9 @@ const Header = () => {
               </div>
             </div>
             <div className='search-form'>
-              <form>
+              <form action='/search'  onSubmit={submitHandle} ref={formEl}>
                 <div className='search-container'>
-                  <input required placeholder='Tìm kiếm truyện...' />
+                  <input name='q' onChange={checkQuery} required placeholder='Tìm kiếm truyện...' />
                   <button>
                     <i className="fas fa-search"></i>
                   </button>
@@ -59,7 +79,7 @@ const Header = () => {
             </div>
             {/* <div className='sign'>
               <Link to='/login'>Đăng nhập</Link>
-              <Link to='/login'>Đăng ký</Link>
+              <Link to='/register'>Đăng ký</Link>
             </div> */}
             <div className='user'>
               <Link title='Thêm truyện mới' className='add'>
@@ -70,7 +90,7 @@ const Header = () => {
                 <Link>
                   <img style={{ display: 'inline-block' }} src='/images/user_default_img.png' />
                 </Link>
-                <Link className='out'>
+                <Link to='login' className='out'>
                   Đăng xuất
                 </Link>
               </div>

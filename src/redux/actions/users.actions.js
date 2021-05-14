@@ -6,6 +6,14 @@ export const getAllUsers = (payload) => ({
   payload
 })
 
+
+export const getUserData = (userData) => {
+  return {
+    type: "GET_USER_DATA",
+    payload: userData,
+  }
+}
+
 export const getAllUsersAsync = (query, loading) => {
   return dispatch => {
     if (loading) dispatch(toggleLoading(true))

@@ -52,16 +52,6 @@
 }
 
 #stories-list {
-  .row.custom-gutter {
-    margin-left: 6px;
-    margin-right: 6px;
-  }
-
-  [class^="col"].custom-gutter,
-  [class*=" col"].custom-gutter {
-    padding-left: 6px;
-    padding-right: 6px;
-  }
   .stories-list-container {
     position: relative;
     .category {
@@ -75,7 +65,7 @@
     .item-container {
       border: 1px solid rgba(255, 119, 56, 0.384);
       border-radius: 2px;
-      padding: 4px;
+      padding: 8px;
       margin-bottom: 32px;  
       .thumb {
         width: 100%;
