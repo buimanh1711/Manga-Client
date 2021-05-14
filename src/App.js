@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import './static/styles/common.css'
 import './static/styles/sign.scss'
 import './static/styles/home.scss'
-import './static/styles/header.scss'
+import './static/styles/template.scss'
 
 import './static/styles/responsive.scss'
 import MainLayout from './layouts/main'

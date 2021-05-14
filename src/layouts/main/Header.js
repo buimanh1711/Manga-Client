@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { useSelector } from "react-redux"
 import { Link, useLocation } from 'react-router-dom'
 
@@ -6,47 +7,108 @@ const Header = () => {
   const menu = useSelector(state => state.web.menu)
   const asPath = location.pathname || '/'
 
+  const [mbMenu, setMbMenu] = useState(false)
+
   return (
-    <div id='main-header'>
-      <div className='container'>
-        <div className='header-container'>
-          <div className='logo'>
-            <div className='avt-wrapper'>
-              <a href='/'>
-                <img src='/images/logo.png' />
-              </a>
+    <>
+      <div id='main-header'>
+        <div className='container'>
+          <div className='header-container'>
+            <div className='logo'>
+              <div className='avt-wrapper'>
+                <a href='/'>
+                  <img src='/images/logo.png' />
+                </a>
+              </div>
             </div>
-          </div>
-          <div className='search-form'>
-            <div className='search-container'>
-              <input placeholder='Tìm kiếm truyện...' />
-              <button>
-                <i className="fas fa-search"></i>
-              </button>
+            <div className='search-form'>
+              <form>
+                <div className='search-container'>
+                  <input required placeholder='Tìm kiếm truyện...' />
+                  <button>
+                    <i className="fas fa-search"></i>
+                  </button>
+                </div>
+              </form>
             </div>
-          </div>
-          <div className='sign'>
-            <Link to='/login'><span>Đăng nhập</span> <i className="fas fa-sign-in-alt"></i></Link>
-            <Link to='/login'><span>Đăng ký</span> <i className="fas fa-user-plus"></i></Link>
+            <div className='sign'>
+              <Link to='/login'>Đăng nhập</Link>
+              <Link to='/login'>Đăng ký</Link>
+            </div>
           </div>
         </div>
         <div className='header-menu'>
-          <ul>
-            {
-              menu.map((item, index) => {
-                return (
-                  <li className={asPath === item.path ? 'active': ''} key={index}>
-                    <Link to={item.path}>
-                      {item.title}
-                    </Link>
-                  </li>
-                )
-              })
-            }
-          </ul>
+          <div className='container'>
+            <ul>
+              {
+                menu.map((item, index) => {
+                  return (
+                    <li className={asPath === item.path ? 'active' : ''} key={index}>
+                      <Link to={item.path}>
+                        {item.title}
+                      </Link>
+                    </li>
+                  )
+                })
+              }
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
+
+      <div id='main-mb-header'>
+        {
+          mbMenu &&
+          <>
+            <div className='menu-overlay'></div>
+            <div className='fixed-menu'>
+              <button className='switch' onClick={() => setMbMenu(false)}>
+                <i className="fas fa-times-circle"></i>
+              </button>
+              <form>
+                <div className='search-mb'>
+                  <input required placeholder='Tìm kiếm truyện' />
+                  <button>
+                    <i className="fas fa-search"></i>
+                  </button>
+                </div>
+              </form>
+              <ul>
+                {
+                  menu.map((item, index) => (
+                    <li className={item.path === asPath ? 'active' : ''} key={index}>
+                      <Link to={item.path}>
+                        {item.title}
+                      </Link>
+                    </li>
+                  ))
+                }
+              </ul>
+              <div className='sign'>
+                <Link>Đăng nhập</Link>
+                <Link>Đăng ký</Link>
+              </div>
+            </div>
+          </>
+        }
+        <div className='container'>
+          <div className='header-container'>
+            <div className='logo'>
+              <div className='avt-wrapper'>
+                <a href='/'>
+                  <img src='/images/logo.png' />
+                </a>
+              </div>
+            </div>
+            <div className='bars-btn'>
+              <button onClick={() => setMbMenu(true)}>
+                <i className="fas fa-bars"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   )
 }
 
