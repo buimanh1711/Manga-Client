@@ -57,12 +57,24 @@ const Header = () => {
                 </div>
               </form>
             </div>
-            <div className='sign'>
+            {/* <div className='sign'>
               <Link to='/login'>Đăng nhập</Link>
               <Link to='/login'>Đăng ký</Link>
-            </div>
+            </div> */}
             <div className='user'>
-              
+              <Link title='Thêm truyện mới' className='add'>
+                <span></span>
+                <i className="fas fa-pen-nib"></i>
+              </Link>
+              <div className='avt-wrapper'>
+                <Link>
+                  <img style={{ display: 'inline-block' }} src='/images/user_default_img.png' />
+                </Link>
+                <Link className='out'>
+                  Đăng xuất
+                </Link>
+              </div>
+              <span style={{marginLeft: 8, fontWeight: 'bold'}}>Bùi Văn Mạnh</span>
             </div>
           </div>
         </div>
@@ -113,10 +125,14 @@ const Header = () => {
                   ))
                 }
               </ul>
-              <div className='sign'>
+              <div className='user'>
+                <Link>Bùi Văn Mạnh</Link>
+                <Link>Đăng xuất</Link>
+              </div>
+              {/* <div className='sign'>
                 <Link>Đăng nhập</Link>
                 <Link>Đăng ký</Link>
-              </div>
+              </div> */}
             </div>
           </>
         }
@@ -130,6 +146,10 @@ const Header = () => {
               </div>
             </div>
             <div className='bars-btn'>
+              <Link title='Thêm truyện mới' className='add'>
+                <span></span>
+                <i className="fas fa-pen-nib"></i>
+              </Link>
               <button onClick={() => setMbMenu(true)}>
                 <i className="fas fa-bars"></i>
               </button>

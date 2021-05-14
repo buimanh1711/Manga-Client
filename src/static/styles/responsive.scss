@@ -4,6 +4,9 @@
 @media (max-width: 1199.98px) {
 }
 @media (max-width: 991.98px) {
+  #filter .filter-tag-container {
+    margin-bottom: 32px;
+  }
   #invite .invite-container {
     flex-wrap: wrap;
     justify-content: center;
@@ -38,6 +41,9 @@
   }
 }
 @media (max-width: 767.98px) {
+  #filter {
+    display: none;
+  }
   #latest .first-title {
     margin: 10px 0;
     font-size: 1.5rem;
