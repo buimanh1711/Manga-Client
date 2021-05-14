@@ -12,6 +12,8 @@ import MainLayout from './layouts/main'
 import Home from './pages/home'
 
 function App() {
+  const categories = useSelector(state => state.categories.categories)
+
   return (
     <div className='my-app'>
       <Switch>

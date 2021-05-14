@@ -156,8 +156,10 @@ a {
 }
 .slick-prev:before {
   left: 0;
+  color: var(--primary-color)
 }
 
 .slick-next:before {
   right: 0;
+  color: var(--primary-color)
 }

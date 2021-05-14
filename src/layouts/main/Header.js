@@ -7,6 +7,32 @@ const Header = () => {
   const menu = useSelector(state => state.web.menu)
   const asPath = location.pathname || '/'
 
+  const categories = [
+    {
+      title: 'Truyện tranh',
+      path: '/truyen-tranh'
+    },
+    {
+      title: 'Truyện tranh',
+      path: '/truyen-tranh'
+    },
+    {
+      title: 'Truyện tranh',
+      path: '/truyen-tranh'
+    },
+    {
+      title: 'Truyện tranh',
+      path: '/truyen-tranh'
+    },
+    {
+      title: 'Truyện tranh',
+      path: '/truyen-tranh'
+    },
+    {
+      title: 'Truyện tranh',
+      path: '/truyen-tranh'
+    }
+  ]
   const [mbMenu, setMbMenu] = useState(false)
 
   return (
@@ -34,6 +60,9 @@ const Header = () => {
             <div className='sign'>
               <Link to='/login'>Đăng nhập</Link>
               <Link to='/login'>Đăng ký</Link>
+            </div>
+            <div className='user'>
+              
             </div>
           </div>
         </div>
