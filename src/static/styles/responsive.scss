@@ -41,6 +41,18 @@
   }
 }
 @media (max-width: 767.98px) {
+  #stories-list .stories-list-container .item-container .info a {
+    font-size: 1.8rem;
+  }
+  #stories-list .stories-list-container .item-container .info p {
+    font-size: 1.5rem;
+  }
+  #stories-list .stories-list-container .item-container .thumb img {
+    aspect-ratio: 1;
+  }
+  #stories-list {
+    margin-top: 32px;
+  }
   #filter {
     display: none;
   }

@@ -7,10 +7,10 @@ const StoriesList = () => {
     <div id='stories-list'>
       <div className='container'>
         <div className='stories-list-container'>
-          <div className='row'>
+          <div className='row custom-gutter'>
             {
               arr.map(item => (
-                <div className='col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3'>
+                <div className='col-12 col-sm-12 col-md-6 col-lg-3 col-xl-2 custom-gutter'>
                   <div className='item-container'>
                     <span className='category'>Truyện tranh</span>
                     <div className='thumb'>
@@ -21,7 +21,7 @@ const StoriesList = () => {
                     <div className='info'>
                       <Link>Captain America: The first Avenger</Link>
                       <p>
-                        bộ phim siêu anh hùng được phát hành năm 2011 dựa trên nhân vật truyện tranh cùng tên của Marvel Comics.
+                        Chương 120
                       </p>
                     </div>
                   </div>

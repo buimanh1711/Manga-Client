@@ -1,3 +1,5 @@
+import toEng from "./toEng"
+
 export const emailValidate = (value) => {
   if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(value)) {
    return true
@@ -7,7 +9,7 @@ export const emailValidate = (value) => {
 }
 
 export const nameValidate = (value) => {
-  if (/^[A-Za-z\s]+$/.test(value)) {
+  if (/^[A-Za-z\s]+$/.test(toEng(value))) {
    return true
   } else {
     return false

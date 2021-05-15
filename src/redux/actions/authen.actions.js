@@ -1,6 +1,6 @@
 import * as API from "../../services/authen.services"
 
-export const auth = () => {
+export const authAsync = () => {
   return (dispatch) => {
     API.auth().then((res) => {
       if (res.data && res.data.status) {
@@ -8,7 +8,7 @@ export const auth = () => {
           login: res.data.login,
           user: res.data.user,
         }
-        dispatch(authAsync(payload))
+        dispatch(auth(payload))
       } else {
         console.log("Lỗi xác thực!")
       }
@@ -16,7 +16,7 @@ export const auth = () => {
   }
 }
 
-export const authAsync = (payload) => {
+export const auth = (payload) => {
   return {
     type: "AUTHENTICATION",
     payload,

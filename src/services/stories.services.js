@@ -27,9 +27,9 @@ export const deleteStory = (_id) => {
 }
 
 export const commentStory = (_id, authorId, content ) => {
-  return request(`/stories/${_id}/comment`, 'PUT', { authorId, content } )
+  return request(`/stories/${_id}/${authorId}/comment`, 'PUT', { content } )
 }
 
 export const followStory = (_id, authorId ) => {
-  return request(`/stories/${_id}/follow`, 'PUT', { authorId } )
+  return request(`/stories/${_id}/${authorId}/follow`, 'PUT')
 }

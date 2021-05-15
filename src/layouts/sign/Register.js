@@ -1,22 +1,21 @@
 import { Link, useHistory } from 'react-router-dom'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import { nameValidate, usernameValidate, emailValidate, phoneValidate } from '../../utils/validate'
 import { register } from '../../services/authen.services'
 import { useDispatch } from 'react-redux'
 import { toggleLoading } from '../../redux/actions/web.actions'
 import { getUserData } from '../../redux/actions/users.actions'
-const Register = (props) => {
+
+const Register = () => {
     const dispatch = useDispatch()
 
     const [emailErr, logEmailErr] = useState(false)
     const [usernameErr, logUsernameErr] = useState(false)
-    const [firstNameErr, logFirstNameErr] = useState(false)
-    const [lastNameErr, logLastNameErr] = useState(false)
+    const [fullNameErr, logFullNameErr] = useState(false)
     const [phoneNumberErr, logPhoneNumberErr] = useState(false)
 
     const [prePass, setPrePass] = useState('')
     const [passCheck, setPassCheck] = useState(false)
-
 
     const [userData, setUserData] = useState({})
 
@@ -71,33 +70,18 @@ const Register = (props) => {
         }
     }
 
-    const firstNameValidation = (e) => {
+    const fullNameValidation = (e) => {
         let value = e.target.value || ''
         value = value.trim()
         setUserData({
             ...userData,
-            firstName: value
+            fullName: value
         })
 
         if (value !== '') {
-            logFirstNameErr(!nameValidate(value))
+            logFullNameErr(!nameValidate(value))
         } else {
-            logFirstNameErr(false)
-        }
-    }
-
-    const lastNameValidation = (e) => {
-        let value = e.target.value || ''
-
-        setUserData({
-            ...userData,
-            lastName: value
-        })
-
-        if (value !== '') {
-            logLastNameErr(!nameValidate(value))
-        } else {
-            logLastNameErr(false)
+            logFullNameErr(false)
         }
     }
 
@@ -126,7 +110,7 @@ const Register = (props) => {
     }
 
     const checkValidate = () => {
-        if (!emailErr && !usernameErr && !firstNameErr && !lastNameErr && !passCheck) {
+        if (!emailErr && !usernameErr && !fullNameErr && !passCheck) {
             return true
         } else return false
     }
@@ -177,10 +161,7 @@ const Register = (props) => {
                 </div>
                 <form onSubmit={(e) => submitHandle(e)} id='sign-in-form'>
                     <span style={{ fontFamily: 'mainFont' }}>Họ Tên:</span>
-                    <div className='form-name'>
-                        <input onChange={(e) => firstNameValidation(e)} className={firstNameErr ? 'validate-error' : ''} required name='firstName' placeholder='Tên' />
-                        <input onChange={(e) => lastNameValidation(e)} className={lastNameErr ? 'validate-error' : ''} required name='lastName' placeholder='Họ' />
-                    </div>
+                    <input onChange={(e) => fullNameValidation(e)} className={fullNameErr ? 'validate-error' : ''} required name='firstName' placeholder='Tên' />
                     <label htmlFor='email'>Email: </label>
                     <input onChange={(e) => emailValidation(e)} className={emailErr ? 'validate-error' : ''} required id='email' placeholder='example@email.com' name='email' />
                     <label htmlFor='phone'>Số điện thoại: </label>

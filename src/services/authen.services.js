@@ -9,7 +9,7 @@ export const loginAuth = (userData) => {
 }
 
 export const register = (userData) => {
-  return request('/register', 'POST', userData)
+  return request('/accounts/register', 'POST', userData)
 }
 
 

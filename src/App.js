@@ -16,10 +16,14 @@ import Stories from './pages/stories'
 import Login from './layouts/sign/Login'
 import Register from './layouts/sign/Register'
 import Search from './pages/search'
+import { authAsync } from './redux/actions/authen.actions'
 
 function App() {
-  const categories = useSelector(state => state.categories.categories)
+  const dispatch = useDispatch()
 
+  useEffect(() => {
+    dispatch(authAsync())
+  })
   return (
     <div className='my-app'>
       <Switch>

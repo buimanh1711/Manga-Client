@@ -6,6 +6,9 @@ import { specialCharsValidate } from "../../utils/validate"
 const Header = () => {
   const location = useLocation()
   const menu = useSelector(state => state.web.menu)
+  const login = useSelector(state => state.users.login)
+  const user = useSelector(state => state.users.user)
+
   const asPath = location.pathname || '/'
 
   const categories = [
@@ -41,7 +44,7 @@ const Header = () => {
 
   const checkQuery = (e) => {
     let value = e.target.value.trim()
-    if(value.length > 0 && specialCharsValidate(value)) {
+    if (value.length > 0 && specialCharsValidate(value)) {
       setCheck(true)
     } else {
       setCheck(false)
@@ -49,7 +52,7 @@ const Header = () => {
   }
 
   const submitHandle = (e) => {
-    if(e.key === 'Enter' && check) {
+    if (e.key === 'Enter' && check) {
       e.preventDefault()
       formEl.current.submit()
     }
@@ -68,7 +71,7 @@ const Header = () => {
               </div>
             </div>
             <div className='search-form'>
-              <form action='/search'  onSubmit={submitHandle} ref={formEl}>
+              <form action='/search' onSubmit={submitHandle} ref={formEl}>
                 <div className='search-container'>
                   <input name='q' onChange={checkQuery} required placeholder='Tìm kiếm truyện...' />
                   <button>
@@ -77,25 +80,30 @@ const Header = () => {
                 </div>
               </form>
             </div>
-            {/* <div className='sign'>
-              <Link to='/login'>Đăng nhập</Link>
-              <Link to='/register'>Đăng ký</Link>
-            </div> */}
-            <div className='user'>
-              <Link title='Thêm truyện mới' className='add'>
-                <span></span>
-                <i className="fas fa-pen-nib"></i>
-              </Link>
-              <div className='avt-wrapper'>
-                <Link>
-                  <img style={{ display: 'inline-block' }} src='/images/user_default_img.png' />
+            {
+              login &&
+              <div className='user'>
+                <Link title='Truyện của tôi' className='add'>
+                  <span></span>
+                  <i className="fas fa-pen-nib"></i>
                 </Link>
-                <Link to='login' className='out'>
-                  Đăng xuất
+                <div className='avt-wrapper'>
+                  <Link>
+                    <img style={{ display: 'inline-block' }} src={user.image && user.image.url || '/images/user_default_img.png'} />
+                  </Link>
+                  <Link to='/login' className='out'>
+                    Đăng xuất
                 </Link>
+                </div>
+                <span style={{ marginLeft: 8, fontWeight: 'bold' }}>{user.fullName}</span>
               </div>
-              <span style={{marginLeft: 8, fontWeight: 'bold'}}>Bùi Văn Mạnh</span>
-            </div>
+              ||
+              <div className='sign'>
+                <Link to='/login'>Đăng nhập</Link>
+                <Link to='/register'>Đăng ký</Link>
+              </div>
+            }
+
           </div>
         </div>
         <div className='header-menu'>
@@ -145,14 +153,20 @@ const Header = () => {
                   ))
                 }
               </ul>
-              <div className='user'>
-                <Link>Bùi Văn Mạnh</Link>
-                <Link>Đăng xuất</Link>
-              </div>
-              {/* <div className='sign'>
-                <Link>Đăng nhập</Link>
-                <Link>Đăng ký</Link>
-              </div> */}
+              {
+                login &&
+                <>
+                  <div className='user'>
+                    <Link>Bùi Văn Mạnh</Link>
+                    <Link to='/login'>Đăng xuất</Link>
+                  </div>
+                </>
+                ||
+                <div className='sign'>
+                  <Link to='/login'>Đăng nhập</Link>
+                  <Link to='/register'>Đăng ký</Link>
+                </div>
+              }
             </div>
           </>
         }
