@@ -4,71 +4,36 @@
 #collection1, #collection1 .collection1-container {
   width: 100%;
   margin: 45px auto;
-  position: relative;
 }
 
 #collection1 .item-container {
   width: 100%;
-  padding: 8px;
-  border-radius: 8px;
-  margin-bottom: 30px;
-  border: 1px solid var(--primary-color)
-}
-
-#collection1 .item-content {
-  width: 100%;
-}
-
-#collection1 .item-thumb {
-  width: 100%;
-}
-
-#collection1 .item-thumb img {
-  width: 100%;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-  border-radius: 4px;
-}
-
-#collection1 .item-title {
-  margin: 12px auto;
-  height: 112px;
-  max-height: 110px;
-}
-
-#collection1 .item-title-title {
-  font-size: 1.4rem;
-  width: 100%;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-  line-height: 1.8rem;
-  color: var(--text-color)
-}
-
-#collection1 .item-title-desc {
-  font-size: 1rem;
-  width: 100%;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-}
-
-#collection1 .collection1-title, #latest .latest-title {
-  position: absolute;
-  width: 144px;
-  height: 50px;
-  display: flex;
-  margin: 0;
-  padding: 0;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  left: -95px;
-  top: 147px;
-  transform: rotate(-90deg)
+  padding: 0px;
+  margin-bottom: 20px;
+  position: relative;
+  border: 1px solid var(--primary-color);
+  .item-title {
+    width: 100%;
+    background-color:rgba(0, 0, 0, 0.3);
+    color: white;
+    padding: 5px 0px;
+    font-size: 1rem;
+    bottom: 0;
+    position: absolute;
+  }
+  .item-title a {
+    color: white;
+  }
+  .item-category {
+    margin: 10px;
+    padding: 5px 10px;
+    position: absolute;
+    background-color: var(--primary-color);
+    font-size: 0.8rem;
+  }
+  .item-category a {
+    color: white;
+  }
 }
 
 /* latest */
@@ -77,128 +42,123 @@
   position: relative;
   width: 100%;
   margin: 60px 0px;
+  .latest-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--text-color)
+  }
 }
 
 #latest .posts-container, #latest .first-container {
   width: 100%;
 }
 
-#latest .first-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 20px 0px;
-  flex-wrap: wrap;
-  border: 1px solid var(--primary-color);
-  border-radius: 12px;
-}
-
-#latest .first-thumb {
-  width: 48%;
-  flex-shrink: 0;
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-#latest .first-thumb img {
-  width: 100%;
-  aspect-ratio: 4/3;
-  object-fit: cover;
-}
-
-#latest .first-infor {
-  width: 48%;
-  display: inline-flex;
-   flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-#latest .first-category {
-  font-size: 1rem;
-  padding: 6px 14px;
-  background: var(--primary-color-2);
-  color: white;
-  border-radius: 9999px;
-  display: inline-block;
-}
-
-#latest .first-title {
-  margin: 20px 0;
-  width: 100%;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
-  flex-shrink: 0;
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: var(--text-color)
-}
-
-#latest .first-desc {
-  width: 100%;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
-  font-size: 1.6rem;
-}
-
-#latest .next-content {
+#latest .one-content {
   width: 100%;
   margin-bottom: 20px;
   border: 1px solid var(--primary-color);
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-#latest .next-content img {
-  aspect-ratio: 1;
-  width: 100%;
-  object-fit: cover;
-}
-
-#latest .next-infor {
-  background: var(--primary-color-2);
-  height: auto;
-  padding: 20px;
-  height: 220px;
-  color: white;
-}
-
-#latest .next-infor .next-title {
-  font-weight: bold;
-  font-size: 1.8rem;
-  width: 100%;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
-  color: white;
-}
-
-#latest .next-infor .next-desc {
-  width: 100%;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-}
-
-#latest .next-infor .next-category {
-  font-size: 1rem;
-  padding: 6px 20px;
-  background: #C6E5EB;
-  border-radius: 999999px;
+  border-radius: 10px;
+  padding: 3px;
   display: inline-block;
-  color: black;
+  position: relative;
+  .one-text {
+    font-size: .8rem;
+    width: 150%;
+    visibility: hidden;
+    background: var(--primary-color);
+    margin: 10px;
+    padding: 2px 5px;
+    display: inline-block;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 110%;
+    color: white;
+    .text-title {
+      font-size: 1.4rem;
+      font-weight: bolder;
+      border-bottom: 1px solid white;
+    }
+    .text-category {
+      font-size: .8rem;
+      background: #00b9f1;
+      margin: 5px;
+      padding: 2px 5px;
+      display: inline-block;
+      color: white;
+    }
+    .text-subs {
+      font-size: 1rem;
+      padding: 5px;
+      display: inline-block;
+      color: white;
+    }
+  }
+  .one-text::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: 0px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent var(--primary-color) transparent transparent;
+  }
+  .one-category {
+    font-size: .8rem;
+    background: #00b9f1;
+    margin: 10px;
+    padding: 2px 5px;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: white;
+  }
+  .one-hot {
+    font-size: .8rem;
+    background: #f14c00;
+    margin: 10px;
+    padding: 2px 5px;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+  }
+}
+#latest .one-content:hover {
+  box-shadow: 2px 2px 10px black;
+  margin: 1px;
+}
+#latest .one-content:hover .one-text {
+  visibility: visible;
 }
 
-#latest .next-content.sec img {
-  aspect-ratio: 5/3;
-  object-fit: cover;
+
+
+#latest .one-content img {
+  width: 100%;
 }
+
+#latest .one-infor {
+  color: black;
+  text-align: center;
+  margin-top: 10px;
+  .one-title {
+  font-size: 1rem;
+  font-weight: bold;
+  display: block;
+  color: black;
+  }
+  .one-desc {
+    font-size: .8rem;
+    display: block;
+    color: black;
+  }
+}
+
+
 
 #latest .latest-seemore {
   text-align: right;
