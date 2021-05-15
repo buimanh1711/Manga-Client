@@ -11,99 +11,93 @@ const Collection2 = (props) => {
     {},
     {},
     {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
   ]
   return (
     <>
       <div id='latest'>
         <h1 className='latest-title'>
-          Latest Posts
-                </h1>
+          Truyện mới cập nhật
+        </h1>
         <div className='posts-container'>
-          {/* post 1 */}
-          {
-            arr && arr.length > 1 &&
-            <div className='first-container'>
-              <div className='first-thumb'>
-                <Link to={`posts/`}>
-                  <img src='https://laodongnhatban.com.vn/images/2018/12/28/7acd1f89-c39e-4381-a33e-3da33b39c6ac.jpg' alt='img' />
-                </Link>
-              </div>
-              <div className='first-infor'>
-                <Link to={`posts/`} className='first-category'>
-                  Truyện tranh
-                                </Link>
-                <Link to='/' className='first-title'>
-                  Truyện tranh manga hay
-                                </Link>
-                <p className='first-desc'>
-                  Staring at the bottom of your glass
-                                </p>
-              </div>
-            </div>
-          }
-          <div className='next-container'>
-            <div className='row'>
-              {/* next 3 */}
-              {
-                arr && arr.length > 4 &&
-                arr.map((item, index) => {
-                  if (index > 2 && index < 6) {
-                    return (
-                      <div className='col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4'>
-                        <div className='next-content'>
-                          <div className='next-thumb'>
-                            <Link to={`posts`}>
-                              <img src='https://laodongnhatban.com.vn/images/2018/12/28/7acd1f89-c39e-4381-a33e-3da33b39c6ac.jpg' alt='img' />
-                            </Link>
+
+          <div className='row'>
+            {/* next 3 */}
+            {
+              arr &&
+              arr.map((item, index) => {
+                return (
+                  <div className='col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3'>
+                    <div className='one-content'>
+                      <div className='one-text'>
+                        <div className='text-title'>
+                          Tên truyện nè
+                       </div>
+                        <div className='text-subs'>
+                          <div className='text-category'>
+                            Thể loại 1
                           </div>
-                          <div className='next-infor'>
-                            <Link to={`posts`} className='next-title'>
-                              Doraemon lac vao xu so cho meo
-                                                        </Link>
-                            <p className='next-desc'>
-                              Doraemon lac vao xu so cho meo
-                              Doraemon lac vao xu so cho meo
-                            </p>
-                            <Link to='/' className='next-category'>Truyen tranh</Link>
+                          <div className='text-category'>
+                            Thể loại 2
                           </div>
-                        </div>
+                          <div className='text-category'>
+                            Thể loại 3
+                          </div>
+                          <div className='text-category'>
+                            Thể loại 4
+                          </div>
+                          <p>
+                          Ooyama-kun học sinh cá biệt trong lớp Akutsu-san, vì một vài lý do ...
+                          </p>
+                       </div>
                       </div>
-                    )
-                  }
-                })
-              }
-              {
-                arr && arr.length > 6 &&
-                arr.map((item, index) => {
-                  if (index > 4 && index < 7) {
-                    return (
-                      < div className='col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6'>
-                        <div className='next-content sec'>
-                          <div className='next-thumb'>
-                            <Link to={`posts`}>
-                              <img src='https://laodongnhatban.com.vn/images/2018/12/28/7acd1f89-c39e-4381-a33e-3da33b39c6ac.jpg' alt='img' />
-                            </Link>
-                          </div>
-                          <div className='next-infor'>
-                            <Link to={`posts`} className='next-title'>
-                              Doraemon lac vao xu so cho meo
-                            </Link>
-                            <p className='next-desc'>
-                              Doraemon lac vao xu so cho meo
-                              Doraemon lac vao xu so cho meo
-                            </p>
-                            <Link to='/' className='next-category'>Truyen tranh</Link>
-                          </div>
+
+                      <div className='one-category'>
+                        Chương 100
                         </div>
+                      <div className='one-hot'>
+                        HOT
+                        </div>
+                      <div className='one-thumb'>
+                        <Link to={`posts`}>
+                          <img
+                            src='https://images8.intercomics.club/comics/0a/cf/0acff57129b3674f5dbf762f420714a2.jpg'
+                            alt='img'
+                          />
+                        </Link>
                       </div>
-                    )
-                  }
-                })
-              }
-            </div>
+                      <div className='one-infor'>
+
+                        <Link to={`posts`} className='one-title'>
+                          Hasagi nè
+                        </Link>
+
+                        <span className='one-desc'>
+                          Chương 100
+                        </span>
+
+
+                      </div>
+                    </div>
+                  </div>
+                )
+              })
+            }
+
           </div>
+          <Link to='/' className='latest-seemore'>See more...</Link>
         </div>
-        <Link to='/' className='latest-seemore'>See more...</Link>
       </div>
     </>
   )

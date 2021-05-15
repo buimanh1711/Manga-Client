@@ -1,62 +1,8 @@
 import { Link } from 'react-router-dom'
-import MySlick from '../../global/Slick'
 
 const Collection1 = (props) => {
-    
-    const responsive = [
-        {
-            breakpoint: 1199,
-            settings: {
-                slidesToShow: 4,
-                slidesToScroll: 4,
-                infinite: true,
-                dots: true
-            }
-        },
-        {
-            breakpoint: 767,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2,
-                infinite: true,
-                dots: true
-            }
-        },
-        {
-            breakpoint: 575,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                infinite: true,
-                dots: true
-            }
-        },
-        {
-            breakpoint: 0,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                infinite: true,
-                dots: true
-            }
-        },
-
-    ]
-
-    const settings = {
-        centerPadding: '30px',
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 5,
-        slidesToScroll: 5,
-        responsive
-    }
 
     const arr = [
-        {},
-        {},
-        {},
         {},
         {},
         {},
@@ -66,34 +12,88 @@ const Collection1 = (props) => {
 
     return <>
         <div id='collection1'>
-            <div className='collection1-container'>
-                <h1 className='collection1-title'>
-                    Typical
-                </h1>
-                <MySlick settings={settings}>
+            <div className='row'>
+                <div className='col-12 col-sm-6 col-md-3 col-lg-3 col-xl-3'>
                     {
-                        arr.map((item, index) =>
-                            <div key={item._id} className='item-container'>
-                                <div className='item-content'>
-                                    <div className='item-thumb'>
-                                        <Link to={`/posts`}>
-                                            <img src='https://laodongnhatban.com.vn/images/2018/12/28/7acd1f89-c39e-4381-a33e-3da33b39c6ac.jpg' alt='img' />
+                        arr && arr.slice(0, 2).map((item, index) => {
+                            return (
+                                <div className='item-container'>
+                                    <div className='item-category'>
+                                        <Link to={`category/`}>
+                                            Tình cảm
                                         </Link>
                                     </div>
+                                    <Link to={`posts/`}>
+                                        <img
+                                            className='img-fluid'
+                                            src='https://i.pinimg.com/564x/6d/8d/5b/6d8d5be6573f527c439903a9e8473dae.jpg'
+                                            alt='img'
+                                        />
+                                    </Link>
                                     <div className='item-title'>
-                                        <Link to={`/posts`} className='item-title-title'>
-                                            Truyeenr tranh man ga
+                                        <Link to={`posts/`}>
+                                            Naruto là con của Boruto
                                         </Link>
-                                        <p className='item-title-desc'>
-                                            truyen tranh manga
-                                        </p>
                                     </div>
                                 </div>
-                            </div>
-                        )
+                            )
+                        })
                     }
-                </MySlick>
-
+                </div>
+                <div className='col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6'>
+                    {
+                        arr && arr.slice(2, 3).map((item, index) => {
+                            return (
+                                <div className='item-container'>
+                                    <div className='item-category'>
+                                        <Link to={`category/`}>
+                                            Tình cảm
+                                        </Link>
+                                    </div>
+                                    <Link to={`posts/`}>
+                                        <img
+                                            className='img-fluid'
+                                            src='https://i.pinimg.com/564x/6d/8d/5b/6d8d5be6573f527c439903a9e8473dae.jpg'
+                                            alt='img'
+                                        />
+                                    </Link>
+                                    <div className='item-title'>
+                                        <Link to={`posts/`}>
+                                            Ngôi nhà và những linh hồn
+                                        </Link>
+                                    </div>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+                <div className='col-12 col-sm-6 col-md-3 col-lg-3 col-xl-3'>
+                    {
+                        arr && arr.slice(3, 5).map((item, index) => {
+                            return (
+                                <div className='item-container'>
+                                    <div className='item-category'>
+                                        <Link to={`category/`}>
+                                            Tình cảm
+                                        </Link>
+                                    </div>
+                                    <Link to={`posts/`}>
+                                        <img
+                                            className='img-fluid'
+                                            src='https://i.pinimg.com/564x/6d/8d/5b/6d8d5be6573f527c439903a9e8473dae.jpg'
+                                            alt='img'
+                                        />
+                                    </Link>
+                                    <div className='item-title'>
+                                        <Link to={`posts/`}>
+                                            Naruto là con của Boruto
+                                        </Link>
+                                    </div>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
             </div>
         </div>
     </>
