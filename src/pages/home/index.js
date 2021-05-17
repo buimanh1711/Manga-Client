@@ -10,10 +10,10 @@ const Home = () => {
         <div className='container'>
           <Collection1 />
           <div className='row'>
-            <div className='col-12 col-sm-12 col-md-6 col-lg-8 col-xl-8'>
+            <div className='col-12 col-sm-6 col-md-12 col-lg-6 col-xl-8'>
               <Collection2 />
             </div>
-            <div className='col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4'>
+            <div className='col-12 col-sm-6 col-md-12 col-lg-6 col-xl-4'>
               <Collection3 />
             </div>
           </div>

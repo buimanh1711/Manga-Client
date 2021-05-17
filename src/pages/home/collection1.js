@@ -13,7 +13,7 @@ const Collection1 = (props) => {
     return <>
         <div id='collection1'>
             <div className='row'>
-                <div className='col-12 col-sm-6 col-md-3 col-lg-3 col-xl-3'>
+                <div className='col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3'>
                     {
                         arr && arr.slice(0, 2).map((item, index) => {
                             return (
@@ -40,7 +40,7 @@ const Collection1 = (props) => {
                         })
                     }
                 </div>
-                <div className='col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6'>
+                <div className='col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6'>
                     {
                         arr && arr.slice(2, 3).map((item, index) => {
                             return (
@@ -67,7 +67,7 @@ const Collection1 = (props) => {
                         })
                     }
                 </div>
-                <div className='col-12 col-sm-6 col-md-3 col-lg-3 col-xl-3'>
+                <div className='col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3'>
                     {
                         arr && arr.slice(3, 5).map((item, index) => {
                             return (

@@ -13,6 +13,8 @@ import './static/styles/responsive.scss'
 import MainLayout from './layouts/main'
 import Home from './pages/home'
 import Stories from './pages/stories'
+import Detail from './pages/stories/Detail'
+
 import Login from './layouts/sign/Login'
 import Register from './layouts/sign/Register'
 import Search from './pages/search'
@@ -26,6 +28,11 @@ function App() {
         <Route path='/search'>
           <MainLayout>
             <Search />
+          </MainLayout>
+        </Route>
+        <Route path='/detail/:slug'>  {/* Chi tiết truyện */}
+          <MainLayout>
+            <Detail />
           </MainLayout>
         </Route>
         <Route path='/stories'>

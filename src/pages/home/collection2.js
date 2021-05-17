@@ -38,7 +38,7 @@ const Collection2 = (props) => {
               arr &&
               arr.map((item, index) => {
                 return (
-                  <div className='col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3'>
+                  <div className='col-6 col-sm-6 col-md-4 col-lg-6 col-xl-3'>
                     <div className='one-content'>
                       <div className='one-text'>
                         <div className='text-title'>

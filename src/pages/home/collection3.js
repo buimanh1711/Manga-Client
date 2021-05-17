@@ -28,10 +28,17 @@ const Collection3 = (props) => {
                             arr &&
                             arr.map((item, index) => {
                                 return (
-                                    <div className='col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12'>
-                                        <div className='border mb-2 d-flex justify-content-between align-items-center'>
+                                    <div className='col-12 col-sm-12 col-md-6 col-lg-12 col-xl-12'>
+                                        <div 
+                                            className='border mb-2 d-flex justify-content-between align-items-center'>
                                             <Link to='/'>
-                                                <img src="http://st.imageinstant.net/data/comics/86/van-co-de-nhat-te.jpg" className="img-thumbnail" height='75px' width='75px' alt="" />
+                                                <img 
+                                                    src="http://st.imageinstant.net/data/comics/86/van-co-de-nhat-te.jpg" 
+                                                    className="img-fluid m-1" 
+                                                    height='75px' 
+                                                    width='75px' 
+                                                    alt="" 
+                                                />
                                             </Link>
                                             <div className='m-1'>
                                                 <Link to='/'>

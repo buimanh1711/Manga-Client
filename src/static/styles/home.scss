@@ -45,7 +45,7 @@
   .latest-title {
     font-size: 2.5rem;
     font-weight: bold;
-    color: var(--text-color)
+    color: var(--primary-color-2);
   }
 }
 
@@ -63,16 +63,13 @@
   position: relative;
   .one-text {
     font-size: .8rem;
-    width: 150%;
-    visibility: hidden;
+    width: 100%;
+    display: none;
     background: var(--primary-color);
-    margin: 10px;
     padding: 2px 5px;
-    display: inline-block;
     position: absolute;
     z-index: 1;
-    top: 0;
-    left: 110%;
+    bottom: 110%;
     color: white;
     .text-title {
       font-size: 1.4rem;
@@ -97,12 +94,12 @@
   .one-text::after {
     content: "";
     position: absolute;
-    top: 50%;
-    right: 100%;
+    top: 100%;
+    right: 50%;
     margin-top: 0px;
     border-width: 10px;
     border-style: solid;
-    border-color: transparent var(--primary-color) transparent transparent;
+    border-color: var(--primary-color) transparent transparent transparent;
   }
   .one-category {
     font-size: .8rem;
@@ -132,7 +129,7 @@
   margin: 1px;
 }
 #latest .one-content:hover .one-text {
-  visibility: visible;
+    display: block;
 }
 
 
@@ -158,8 +155,6 @@
   }
 }
 
-
-
 #latest .latest-seemore {
   text-align: right;
   width: 100%;
@@ -168,47 +163,3 @@
   font-size: 1.2rem;
 }
 
-
-
-#invite {
-  margin: 45px 0px;
-
-}
-
-#invite .invite-container {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-#invite .invite-container h1 {
-  margin: 0;
-}
-
-#invite .form-container {
-  width: 320px;
-  position: relative;
-}
-#invite .invite-container input {
-  padding: 20px;
-  width: 100%;
-  border: none;
-  border-radius: 9999px;
-  background: #344052;
-  color: white;
-  font-size: 1.1rem;
-}
-
-#invite .invite-container button {
-  position: absolute;
-  border: none;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 10px;
-  padding: 12px 20px;
-  border-radius: 999px;
-  background: #5073fe;
-  color: white;
-  cursor: pointer;
-}
